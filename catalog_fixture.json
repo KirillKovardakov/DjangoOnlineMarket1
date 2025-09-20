@@ -1,0 +1,70 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Телефон",
+        "description": "Гаджеты, андроиды, яблочные устройства"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Бытовая утварь",
+        "description": "Предметы для использования дома"
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+        "name": "Айпфон",
+        "description": "Как iphone16 только круче",
+        "image": "",
+        "category": 1,
+        "price": 2000000,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Самсунг",
+        "description": "Как Айпфон только круче",
+        "image": "",
+        "category": 1,
+        "price": 100000,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+        "name": "Грабли",
+        "description": "Удобно подметать пол",
+        "image": "",
+        "category": 2,
+        "price": 1000,
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+        "name": "Веник",
+        "description": "Удобно собирать траву",
+        "image": "",
+        "category": 2,
+        "price": 100,
+        "created_at": null,
+        "updated_at": null
+    }
+}
+]
