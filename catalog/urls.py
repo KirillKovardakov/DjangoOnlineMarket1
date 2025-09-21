@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from catalog.apps import CatalogConfig
-from catalog.views import home,contacts
+from . import views
 
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('', home, name='index'),
-    path('contacts/',contacts, name='contacts')
+    path('', views.home, name='index'),
+    path('contacts/',views.contacts, name='contacts'),
+    path('product/<int:product_id>/', views.product, name='product')
 ]
