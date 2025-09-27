@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.headline }}</title>
+</head>
+<body>
+<p>Заголовок: {{blog.headline}}</p>
+<p>Содержимое: {{blog.content|default:'Отсутствует'}}</p>
+<p>Превью: <img src="{{ blog.preview }}" alt="Отсутствует"></p>
+<p>Количество просмотров: {{blog.count_views}}</p>
+<p>Признак публикации: {{blog.is_published}}</p>
+<p>Дата создания: {{blog.created_at|default:'Отсутствует'}}</p>
+<a href="{% url 'blogs:blog_list' %}" class="btn btn-secondary">Назад</a>
+</body>
+</html>
