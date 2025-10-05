@@ -12,7 +12,7 @@ Class-based views
     2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
 Including another URLconf
     1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+    2. Add a URL to urlpatterns:  path('blogs/', include('blogs.urls'))
 """
 from django.contrib import admin
 from django.urls import path, include
@@ -22,7 +22,7 @@ from . import views
 app_name = CatalogConfig.name
 
 urlpatterns = [
-    path('', views.home, name='index'),
-    path('contacts/',views.contacts, name='contacts'),
-    path('product/<int:product_id>/', views.product, name='product')
+    path('', views.HomeListView.as_view(), name='index'),
+    path('contacts/',views.ContactsTemplateView.as_view(), name='contacts'),
+    path('product/<int:pk>/', views.ProductDetailView.as_view(), name='product')
 ]

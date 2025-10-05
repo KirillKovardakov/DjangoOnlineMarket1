@@ -1,14 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'catalog/base.html' %}
 
 {% block title %}Skystore{% endblock %}
 {% block content %}
-{% include 'header.html' %}
+{% include 'catalog/header.html' %}
 
 
 <h2>Продукт</h2>
 <p>Название: {{product.name}}</p>
 <p>Описание: {{product.description|default:'Отсутствует'}}</p>
-<p>Изображение: <img src="{{ product.image.url }}" alt="Отсутствует"></p>
+<p>Изображение: <img src="{{ product.image }}" alt="Отсутствует"></p>
 <p>Категория: {{product.category}}</p>
 <p>Цена: {{product.price}} Руб.</p>
 <p>Дата создания: {{product.created_at|default:'Отсутствует'}}</p>
