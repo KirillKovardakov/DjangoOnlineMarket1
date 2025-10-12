@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from config.settings import forbidden_words
 
 from .models import Product
 
@@ -45,16 +46,12 @@ class ProductForm(forms.ModelForm):
         return price
 
     def clean_name(self):
-        forbidden_words = ['казино', 'биржа', 'обман', 'криптовалюта', 'дешево', 'полиция', 'крипта', 'бесплатно',
-                           'радар']
         name = self.cleaned_data.get('name')
         if name and name.lower() in forbidden_words:
             raise ValidationError('Имя содержит запрещённые слова')
         return name
 
     def clean_description(self):
-        forbidden_words = ['казино', 'биржа', 'обман', 'криптовалюта', 'дешево', 'полиция', 'крипта', 'бесплатно',
-                           'радар']
         description = self.cleaned_data.get('description')
         if description and description.lower() in forbidden_words:
             raise ValidationError('Описание содержит запрещённые слова')

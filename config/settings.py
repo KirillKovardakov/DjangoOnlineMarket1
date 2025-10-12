@@ -2,7 +2,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 
-from django.conf.global_settings import STATICFILES_DIRS, SECRET_KEY
+from django.conf.global_settings import STATICFILES_DIRS, SECRET_KEY, LOGIN_REDIRECT_URL
 
 load_dotenv(override=True)
 
@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'catalog',
     'blogs',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -111,3 +112,21 @@ MEDIA_URL = '/media/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+forbidden_words = ['казино', 'биржа', 'обман', 'криптовалюта', 'дешево', 'полиция', 'крипта', 'бесплатно',
+                   'радар']
+
+AUTH_USER_MODEL = 'users.CustomUser'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_PORT = 2525
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = os.getenv('EMAILHOSTUSER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAILHOSTPASSWORD')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+LOGIN_REDIRECT_URL='catalog:index'
+LOGIN_URL='users:login'
