@@ -1,3 +1,6 @@
 .venv/*
 .env
-*__pycache__/*
+__pycache__*
+blogs/__pycache__/*
+catalog/__pycache__/*
+users/__pycache__*
