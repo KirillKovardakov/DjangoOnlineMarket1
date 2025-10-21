@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from config.settings import forbidden_words
-
+from django.contrib.auth.models import User
 from .models import Product
 
 
@@ -56,3 +56,5 @@ class ProductForm(forms.ModelForm):
         if description and description.lower() in forbidden_words:
             raise ValidationError('Описание содержит запрещённые слова')
         return description
+
+
